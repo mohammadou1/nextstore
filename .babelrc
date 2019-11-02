@@ -1,0 +1,30 @@
+{
+    "plugins": [
+        [
+            "inline-import",
+            {
+                "extensions": [
+                    ".css"
+                ]
+            }
+        ],
+        [
+            "import",
+            {
+                "libraryName": "antd"
+            }
+        ]
+    ],
+    "presets": [
+        [
+            "next/babel",
+            {
+                // "styled-jsx": {
+                //     "plugins": [
+                //         "styled-jsx-plugin-sass"
+                //     ]
+                // }
+            }
+        ]
+    ]
+}
