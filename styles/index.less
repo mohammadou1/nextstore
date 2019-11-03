@@ -74,6 +74,13 @@ a:hover {
 .mb-large {
     margin-bottom: @large-value;
 }
+.ml-large {
+    margin-left: @large-value;
+}
+
+.mr-large {
+    margin-right: @large-value;
+}
 
 
 .img-fluid {
@@ -166,6 +173,14 @@ h2 {
     display: inline-block;
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
 .relative {
     position: relative;
 }
@@ -186,49 +201,97 @@ h2 {
 
 
 .banner {
-    overflow: hidden;
+    overflow : hidden;
     min-width: 100%;
-    img{
+
+    img {
         min-width: 100%;
     }
 }
-.widget-content{
-    background-color: rgba(0,0,0,0.4);
-    padding: 15% 12px;
 
-    h4{
-        color: #ffffff;
-        position: relative;
-        margin-bottom: 10px;
-        font-size: 18px;
-        &::after{
-            content:'';
-            width: 50%;
-            height: 2px;
-            background-color: @secondary--color;
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            display: block;
+.services{
+    border:1px solid @line-color;
+    border-radius: @border-radius-base;
+    padding: 24px 25px;
+    @media(min-width:992px){
+        .ant-col:not(:nth-child(1)){
+            &::before{
+                content: ' ';
+                position: absolute;
+                left: -15px;
+                height: 100%;
+                width: 1px;
+                background-color: @line-color;
+            }
         }
     }
-    p{
-        color: #ffffff;
+    .service-container{
+        position: relative;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        .content{
+            margin: 0 15px;
+            h4{
+                color: black;
+                font-size: 18px;
+                margin: 0;
+            }
+            p{
+                margin: 0;
+                font-size: 15px;
+            }
+        }
+
+        i{
+            font-size: 28px;
+            color: @primary--color;
+        }
+    }
+}
+
+.widget-content {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding         : 15% 12px;
+
+    h4 {
+        color        : #ffffff;
+        position     : relative;
+        margin-bottom: 10px;
+        font-size    : 18px;
+
+        &::after {
+            content         : '';
+            width           : 50%;
+            height          : 2px;
+            background-color: @secondary--color;
+            position        : absolute;
+            left            : 0;
+            bottom          : -5px;
+            display         : block;
+        }
+    }
+
+    p {
+        color     : #ffffff;
         align-self: center;
         margin-top: 25%;
-        font-size: 15px;
+        font-size : 15px;
     }
 
 }
+
 .container {
     margin-left : auto;
     margin-right: auto;
     max-width   : 100%;
-    @media only screen and (min-width: 1500px)  {
+
+    @media only screen and (min-width: 1500px) {
         width: 1500px;
     }
 
-    @media only screen and (min-width: 1400px) and (max-width:1500px)  {
+    @media only screen and (min-width: 1400px) and (max-width:1500px) {
         width: 1400px;
     }
 
@@ -246,7 +309,7 @@ h2 {
     }
 
     @media only screen and (min-width: 568px) and (max-width:992px) {
-        width: 550px;
+        width: 90%;
     }
 
 }

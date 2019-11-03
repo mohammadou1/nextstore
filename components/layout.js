@@ -1,7 +1,7 @@
 // import stylesheet from 'antd/dist/antd.min.css';
 import '../styles/index.less';
 import Navbar from './navbar/navbar';
-
+import Footer from './footer/footer';
 const Layout = ({ children }) => {
 
     return (<div>
@@ -11,9 +11,7 @@ const Layout = ({ children }) => {
         <main>
             {children}
         </main>
-        <footer>
-
-        </footer>
+            <Footer/>
     </div>);
 }
 
