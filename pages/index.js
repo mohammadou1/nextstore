@@ -124,7 +124,7 @@ const Index = () => {
         </div>
         <div className="mt-large">
           <Row type="flex">
-            {!isMobile && <Col className="px" xl={4} lg={0} md={0} sm={24} xs={24}>
+             <Col className="px" xl={4} lg={0} md={0} sm={24} xs={24}>
               <Widget imageSrc="/images/sample2.jpg" href="/some-url" hrefAs="some-slug-url">
                 <div className="widget-content overlay">
                   <h4>
@@ -135,7 +135,7 @@ const Index = () => {
                     </p>
                 </div>
               </Widget>
-            </Col>}
+            </Col>
             <Col xl={20} lg={24} md={24} sm={24} xs={24}>
               <ItemsSlider slidesToShow={4} slidesToShowMobile={2} slidesToShowTablet={3} items={tempItems} />
             </Col>
