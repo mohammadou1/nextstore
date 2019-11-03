@@ -10,7 +10,7 @@ This project is still in development phase, after finishing the frontend I'll st
 to try it,
 
 
-online demo: [NextStore](https://nextstore-bg7q5is8g.now.sh)
+online demo: [NextStore](https://nextstore.itmohou.now.sh/)
 just clone and
 
 ```npm run dev```
