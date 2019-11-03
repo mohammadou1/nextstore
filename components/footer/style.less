@@ -1,7 +1,76 @@
 @import '../../styles/variables.less';
 
 .footer {
-    height          : 400px;
     background-color: @primary--color;
-    background      : linear-gradient(to right, @primary--color 60%, darken(@primary--color,10%));
+    padding         : 35px 25px 0 35px;
+    background      : linear-gradient(to right, @primary--color 60%, darken(@primary--color, 10%));
+
+    @media (max-width:768px) {
+        text-align: center;
+    }
+
+    .ant-input-group-wrapper {
+        max-width : 400px;
+        margin-top: 1rem;
+
+        input {
+            height: 40px;
+        }
+    }
+
+    hr {
+        border-width    : 0;
+        border-top-width: 1px;
+        margin-top      : 25px;
+    }
+
+    h5 {
+        color        : @secondary--color;
+        font-weight  : bold;
+        font-size    : 17px;
+        margin-bottom: 1.5rem;
+
+        @media (max-width:768px) {
+            margin-top   : 2rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    p {
+        color    : #ffffff;
+        font-size: 14px;
+        margin   : 0;
+
+    }
+
+    ul {
+        margin    : 0;
+        padding   : 0;
+        list-style: none;
+
+        li {
+            line-height: 30px;
+        }
+
+        a {
+            font-size: 14px;
+            color    : #ffffff;
+
+            &:hover {
+                color: @secondary--color;
+            }
+        }
+    }
+
+    .footer-end {
+        padding: 10px 0;
+
+        p {
+            font-size: 13px;
+        }
+
+        a {
+            color: @secondary--color;
+        }
+    }
 }

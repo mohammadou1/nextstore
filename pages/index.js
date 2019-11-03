@@ -69,6 +69,7 @@ const tabs = [
     title: "Best Seller",
     component: <ItemsSlider slidesToShow={5} slidesToShowMobile={2} slidesToShowTablet={3} items={tempItems} />,
   },
+
 ];
 
 const services = [
@@ -96,14 +97,14 @@ const Index = () => {
 
   return (<Layout>
     <Fragment>
-      <Row type="flex" className="justify-content-center">
+      <div className="container mt-large">
+      <Row type="flex" className="justify-content-center mb-large">
         <Col xl={22} lg={22} md={24} sm={24} xs={24}>
           <NoSSR onSSR={<Loading />}>
             <AdSlider />
           </NoSSR>
         </Col>
       </Row>
-      <div className="container mt-large">
         <TabbedItems extraContent={featuredTitle} tabs={tabs} />
         <div className="mt-large text-center">
           <NoSSR onSSR={<Loading />}>

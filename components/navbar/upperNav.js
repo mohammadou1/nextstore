@@ -25,7 +25,7 @@ const categoriesDropdown = (<Select placeholder="All Categories" style={{ width:
 const currencies = [
     { title: 'SAR', href: '/', },
     { title: 'USD', href: '/', },
-].map((currency, idx) => <Item key={currency.title + idx}>
+].map((currency, idx) => <Item key={idx}>
     {currency.title}
 </Item>);
 const currenciesDropdown = (<Menu>
