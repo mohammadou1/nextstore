@@ -1,3 +1,6 @@
+
+
+
 const { PHASE_PRODUCTION_SERVER } =
   process.env.NODE_ENV === 'development'
     ? {} // We're never in "production server" phase when in development mode
@@ -14,6 +17,10 @@ module.exports = (phase, { defaultConfig }) => {
   /* eslint-disable */
   const withLess = require('@zeit/next-less')
   const lessToJS = require('less-vars-to-js')
+  const withOffline = require('next-offline')
+  const withManifest = require('next-manifest')
+
+
   const fs = require('fs')
   const path = require('path')
 
@@ -24,14 +31,65 @@ module.exports = (phase, { defaultConfig }) => {
 
   // fix: prevents error when .less files are required by node
   if (typeof require !== 'undefined') {
-    require.extensions['.less'] = file => {}
+    require.extensions['.less'] = file => { }
   }
 
-  return withLess({
+
+  // ! PWA configurations
+  const manifest = {
+    output: './static',
+    name: 'NextStore',
+    icons: [
+      {
+        "src": "/images/logo.png",
+        "sizes": "64x64",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/logo2.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }
+    ]
+  }
+
+
+  const nextConfig = {
+    target: "serverless",
+    generateInDevMode: true,
+    transformManifest: manifest => ['/'].concat(manifest),
+    workboxOpts: {
+      swDest: "static/service-worker.js",
+      runtimeCaching: [
+        {
+          urlPattern: /^https?.*/,
+          handler: "networkFirst",
+          options: {
+            cacheName: "https-calls",
+            networkTimeoutSeconds: 15,
+            expiration: {
+              maxEntries: 150,
+              maxAgeSeconds: 7 * 24 * 60 * 60 // 1 week
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }
+      ]
+    }
+  };
+
+
+  return withManifest(withOffline(withLess({
     lessLoaderOptions: {
       javascriptEnabled: true,
-      modifyVars: themeVariables // make your antd custom effective
-    }
-  },)
+      modifyVars: themeVariables
+    },
+    manifest: {
+      ...manifest
+    },
+    ...nextConfig
+  })));
 };
 

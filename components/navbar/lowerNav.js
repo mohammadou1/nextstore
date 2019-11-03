@@ -11,14 +11,14 @@ import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
 
 const links = [
-    { title: 'Home', href: '/', },
+    { title: 'Home', href: '/' },
     { title: 'Brands', href: '/brands', },
-    { title: 'New Collection', href: '/collections/new', className: 'new-collection' },
+    { title: 'New Collection', href: '/collections/new', className: '/new-collection' },
     { title: 'Offers / Specials', href: '/offers', as: '/special-offers', className: 'offer', },
     { title: 'Contact Us', href: '/contact', },
 ].map((link, idx) => <Item key={idx}
     className={link.className || ''}>
-    <Link href={link.href} as={link.as || link.href}>
+    <Link  href={link.href} as={link.as || link.href}>
         <a>
             {link.title}
         </a>

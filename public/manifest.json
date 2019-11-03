@@ -1,0 +1,21 @@
+{
+  "name": "NextStore",
+  "short_name": "NextStore",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#1f4c94",
+  "theme_color": "#1f4c94",
+  "description": "NextJS eCommerce.",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo2.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
