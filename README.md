@@ -9,11 +9,11 @@ Please make sure to leave your opinion, it does matter no matter how small it is
 This project is still in development phase, after finishing the frontend I'll start developing it's backend as NodeJS
 to try it,
 
+
+online demo: [NextStore](https://nextstore-bg7q5is8g.now.sh)
 just clone and
 
 ```npm run dev```
-
 or 
-
 ```yarn dev```
 
