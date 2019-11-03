@@ -10,7 +10,10 @@ This project is still in development phase, after finishing the frontend I'll st
 to try it,
 
 just clone and
+
 ```npm run dev```
+
 or 
+
 ```yarn dev```
 
