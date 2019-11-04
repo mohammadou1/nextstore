@@ -5,10 +5,7 @@ import Footer from './footer/footer';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
-Router.events.on('routeChangeStart', _ => {
-    console.log(_);
-    NProgress.start()
-});
+Router.events.on('routeChangeStart', _ => NProgress.start());
 Router.events.on('routeChangeComplete', _ => NProgress.done());
 Router.events.on('routeChangeError', _ => NProgress.done());
 const Layout = ({ children }) => {
@@ -16,11 +13,11 @@ const Layout = ({ children }) => {
     return (<div>
         {/* <style dangerouslySetInnerHTML={{ __html: stylesheet }} /> */}
 
-            <Navbar />
+        <Navbar />
         <main>
             {children}
         </main>
-            <Footer/>
+        <Footer />
     </div>);
 }
 

@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "nodemon server.js",
     "build": "next build",
-    "start": "node server.js",
+    "start": "next start",
     "export": "next export"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "antd": "^3.24.3",
     "babel-plugin-import": "^1.12.2",

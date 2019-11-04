@@ -15,6 +15,7 @@ module.exports = (phase, { defaultConfig }) => {
   }
 
   /* eslint-disable */
+  const withCSS = require('@zeit/next-css');
   const withLess = require('@zeit/next-less')
   const lessToJS = require('less-vars-to-js')
   const withOffline = require('next-offline')
@@ -56,8 +57,8 @@ module.exports = (phase, { defaultConfig }) => {
 
   const nextConfig = {
     target: "serverless",
-    generateInDevMode: true,
-    transformManifest: manifest => ['/'].concat(manifest),
+    // generateInDevMode: true,
+    // transformManifest: manifest => ['/'].concat(manifest),
     workboxOpts: {
       swDest: "static/service-worker.js",
       runtimeCaching: [
@@ -81,15 +82,19 @@ module.exports = (phase, { defaultConfig }) => {
   };
 
 
-  return withManifest(withOffline(withLess({
-    lessLoaderOptions: {
-      javascriptEnabled: true,
-      modifyVars: themeVariables
-    },
-    manifest: {
-      ...manifest
-    },
-    ...nextConfig
-  })));
+  return withManifest(
+    withOffline(
+      withCSS(withLess({
+        lessLoaderOptions: {
+          javascriptEnabled: true,
+          modifyVars: themeVariables
+        },
+        manifest: {
+          ...manifest
+        },
+        ...nextConfig
+      }
+      ))
+    ));
 };
 
