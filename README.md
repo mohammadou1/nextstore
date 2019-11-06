@@ -16,5 +16,8 @@ just clone and
 ```npm run dev```
 or 
 ```yarn dev```
+
+
+
 ![alt text](https://github.com/mohammadou1/nextstore/blob/master/documentation/images/captured.gif)
 
