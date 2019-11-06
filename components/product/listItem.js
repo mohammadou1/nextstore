@@ -26,7 +26,7 @@ const Rating = ({ rating = 0 }) => (
 
 const listItem = props => {
     const { item } = props;
-    const { id, image, title, slug, rating, price, discount,body:brief } = item;
+    const { id, image, title, slug, rating, price, discount, body: brief } = item;
 
     return (
         <div className="product-item list-item ">
@@ -43,11 +43,13 @@ const listItem = props => {
                 <Col xl={18} lg={18} md={16} sm={24} xs={24}>
                     <div className="details">
                         <Link href={`/items/${id}`} as={`/items/${slug || id}`}>
-                            <h4 className="text mb product-title">
-                                <Truncate lines={3} ellipsis={<span>...</span>}>
-                                    {title}
-                                </Truncate>
-                            </h4>
+                            <a>
+                                <h3 className=" mb product-title">
+                                    <Truncate lines={3} ellipsis={<span>...</span>}>
+                                        {title}
+                                    </Truncate>
+                                </h3>
+                            </a>
                         </Link>
                         <div className="mt mb">
                             <NoSSR>
@@ -55,7 +57,9 @@ const listItem = props => {
                             </NoSSR>
                         </div>
                         <p className="text">
-                            {brief}
+                            <Truncate lines={3} ellipsis={<span>...</span>}>
+                                {brief}
+                            </Truncate>
                         </p>
                         <p className="primary-color bold mt">
                             {discount ? <Fragment>

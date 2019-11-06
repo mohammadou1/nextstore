@@ -40,11 +40,13 @@ const gridItem = props => {
         </div>
         <div className="mb details">
             <Link href={`/items/${id}`} as={`/items/${slug || id}`}>
+                <a>
                 <h4 className="text mb product-title">
                     <Truncate lines={2} ellipsis={<span>...</span>}>
                         {title}
                     </Truncate>
                 </h4>
+                </a>
             </Link>
             <p className="primary-color bold mt">
                 {discount ? <Fragment>
