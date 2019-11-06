@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import Router, { withRouter } from 'next/router';
 import {
     Row,
     Col,
@@ -8,10 +10,9 @@ import {
     Dropdown,
     Icon
 } from 'antd';
-import Link from 'next/link';
-
 const { Item } = Menu;
 const { Option } = Select;
+
 const options = [];
 
 for (let i = 0; i < 5; i++) {
@@ -32,7 +33,13 @@ const currenciesDropdown = (<Menu>
     {currencies}
 </Menu>);
 
-const UpperNav = () => {
+const UpperNav = props => {
+    // * to extract search value and assign it to default search input value.
+    const { router } = props;
+    const searchHandler = value => {
+        // ! used _limit just to match jsonplaceholder format..
+        Router.push(`/search?_title=${value}&_limit=10`);
+    }
     return (
         <div className="upper-menu">
             <div className="container">
@@ -48,8 +55,10 @@ const UpperNav = () => {
                         <Col xl={10} lg={14} md={24} sm={24} xs={24}>
                             <Form>
                                 <Input.Search
+                                    defaultValue={router.query._title || ''}
                                     className="input-search"
                                     addonBefore={categoriesDropdown}
+                                    onSearch={searchHandler}
                                     placeholder="Search Products.." />
                             </Form>
                         </Col>
@@ -69,4 +78,5 @@ const UpperNav = () => {
     );
 }
 
-export default UpperNav;
+
+export default withRouter(UpperNav);

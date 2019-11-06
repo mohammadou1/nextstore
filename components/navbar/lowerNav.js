@@ -18,7 +18,7 @@ const links = [
     { title: 'Contact Us', href: '/contact', },
 ].map((link, idx) => <Item key={idx}
     className={link.className || ''}>
-    <Link  href={link.href} as={link.as || link.href}>
+    <Link href={link.href} as={link.as || link.href}>
         <a>
             {link.title}
         </a>

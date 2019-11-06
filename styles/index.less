@@ -43,6 +43,18 @@ a:hover {
 
 }
 
+.px-large {
+    padding-left : @large-value;
+    padding-right: @large-value;
+
+}
+
+.py-large {
+    padding-bottom: @large-value;
+    padding-top   : @large-value;
+
+}
+
 .pb {
     padding-bottom: @small-value;
 }
@@ -74,6 +86,7 @@ a:hover {
 .mb-large {
     margin-bottom: @large-value;
 }
+
 .ml-large {
     margin-left: @large-value;
 }
@@ -209,44 +222,49 @@ h2 {
     }
 }
 
-.services{
-    border:1px solid @line-color;
+.services {
+    border       : 1px solid @line-color;
     border-radius: @border-radius-base;
-    padding: 24px 25px;
-    @media(min-width:992px){
-        .ant-col:not(:nth-child(1)){
-            &::before{
-                content: ' ';
-                position: absolute;
-                left: -15px;
-                height: 100%;
-                width: 1px;
+    padding      : 24px 25px;
+
+    @media(min-width:992px) {
+        .ant-col:not(:nth-child(1)) {
+            &::before {
+                content         : ' ';
+                position        : absolute;
+                left            : -15px;
+                height          : 100%;
+                width           : 1px;
                 background-color: @line-color;
             }
         }
     }
-    .service-container{
-        position: relative;
-        margin-top: 12px;
+
+    .service-container {
+        position     : relative;
+        margin-top   : 12px;
         margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        .content{
+        display      : flex;
+        align-items  : center;
+
+        .content {
             margin: 0 15px;
-            h4{
-                color: black;
+
+            h4 {
+                color    : black;
                 font-size: 18px;
-                margin: 0;
+                margin   : 0;
             }
-            p{
-                margin: 0;
+
+            p {
+                margin   : 0;
                 font-size: 15px;
             }
         }
 
-        i{
+        i {
             font-size: 28px;
-            color: @primary--color;
+            color    : @primary--color;
         }
     }
 }

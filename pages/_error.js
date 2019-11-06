@@ -1,5 +1,5 @@
 import Layout from '../components/layout';
-import {withRouter} from 'next/router';
+import { withRouter } from 'next/router';
 
 
 const error = (props) => {
