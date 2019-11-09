@@ -17,3 +17,7 @@ just clone and
 or 
 ```yarn dev```
 
+
+
+![alt text](https://github.com/mohammadou1/nextstore/blob/master/documentation/images/captured.gif)
+
