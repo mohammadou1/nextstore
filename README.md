@@ -19,5 +19,7 @@ or
 
 
 
-![alt text](https://github.com/mohammadou1/nextstore/blob/master/documentation/images/captured.gif)
+![NextStore](https://github.com/mohammadou1/nextstore/blob/master/documentation/images/captured.gif)
+
+![NextStore](https://github.com/mohammadou1/nextstore/blob/master/documentation/images/captured2.gif)
 
