@@ -36,7 +36,7 @@ const productPreview = ({ preview, toggle, productID }) => {
     useEffect(() => {
         const getProduct = async () => {
             const response = await axios.get(`/posts/${productID}`);
-            setProduct(response.data)
+            setTimeout(() => setProduct(response.data),1000);
         }
         getProduct();
     }, []);
