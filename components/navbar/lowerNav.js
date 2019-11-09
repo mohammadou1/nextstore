@@ -7,8 +7,12 @@ import {
     Drawer
 } from 'antd';
 const { Item, SubMenu } = Menu;
+import NoSSR from 'react-no-ssr';
 import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
+
+
 
 const links = [
     { title: 'Home', href: '/' },
@@ -16,30 +20,33 @@ const links = [
     { title: 'New Collection', href: '/collections/new', className: '/new-collection' },
     { title: 'Offers / Specials', href: '/offers', as: '/special-offers', className: 'offer', },
     { title: 'Contact Us', href: '/contact', },
-].map((link, idx) => <Item key={idx}
-    className={link.className || ''}>
-    <Link href={link.href} as={link.as || link.href}>
-        <a>
+].map(link => <Item key={link.as || link.href}>
+    <Link href={link.href}
+        as={link.as || link.href}>
+        <a className={link.className || ''}>
             {link.title}
         </a>
     </Link>
 </Item>
 );
 
-
-const LowerNav = () => {
+const LowerNav = props => {
     const [toggled, setToggled] = useState(false);
     const isMobile = useMediaQuery({ query: '(max-width: 992px)' });
-
+    const { router } = props;
     const toggleMenu = () => setToggled(!toggled);
+
+    const selectedPath = router.pathname !== '/_error' ? router.pathname : router.asPath;
     return (
         <header className="lower-menu sticky">
             <div className="container">
                 {!isMobile ? <Row type="flex">
                     <Col sm={24} md={14}>
-                        <Menu mode="horizontal">
-                            {links}
-                        </Menu>
+                        <NoSSR>
+                            <Menu selectedKeys={[selectedPath]} mode="horizontal">
+                                {links}
+                            </Menu>
+                        </NoSSR>
                     </Col>
                     <Col className="text-right" sm={24} md={10}>
                         <Menu mode="horizontal">
@@ -108,4 +115,4 @@ const LowerNav = () => {
     );
 }
 
-export default LowerNav;
+export default withRouter(LowerNav);

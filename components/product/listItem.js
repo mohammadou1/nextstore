@@ -4,32 +4,21 @@ import Link from 'next/link';
 import {
     Row,
     Col,
-    Button
 } from 'antd';
 import Truncate from 'react-truncate';
+import Controls from './controls';
+import Rating from './rating';
 import './listItem.less';
 
 
-const Rating = ({ rating = 0 }) => (
-    <div className="mb">
-        {
-            [...Array(5)].map((_, idx) => {
-                if ((idx + 1) <= rating) {
-                    return <i key={idx} className="fas fa-star star-filled"></i>
-                }
-                return <i key={idx} className="fas fa-star star-not-filled"></i>
-            })
-        }
-    </div>
-);
-
-
 const listItem = props => {
-    const { item } = props;
+    const { item,togglePreview } = props;
     const { id, image, title, slug, rating, price, discount, body: brief } = item;
+
 
     return (
         <div className="product-item list-item ">
+
             <Row type="flex">
                 <Col xl={6} lg={6} md={8} sm={24} xs={24}>
                     <Link href={`/items/${id}`} as={`/items/${slug || id}`}>
@@ -68,14 +57,7 @@ const listItem = props => {
                             </Fragment> : <span>${price}</span>}
                         </p>
                         <NoSSR>
-                            <div className="product-controls">
-                                <Button type="primary" size="large" onClick={() => console.log('add to cart')}>
-                                    <i className="fas fa-cart-plus"></i>
-                                </Button>
-                                <Button size="large" onClick={() => console.log('quick view')}>
-                                    <i className="fas fa-eye"></i>
-                                </Button>
-                            </div>
+                            <Controls addToCardHandler={() => console.log('add to cart')} previewHandler={togglePreview} />
                         </NoSSR>
                     </div>
                 </Col>
