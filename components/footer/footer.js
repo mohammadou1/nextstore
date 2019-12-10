@@ -13,7 +13,7 @@ const aboutLinks = [
     { title: 'FAQ', href: '/faq', },
     { title: 'Contact Us', href: '/contact', as: 'contact-us' },
 ].map((link, idx) => <li key={idx}>
-    <Link href={link.href || '/'} as={link.as || link.href || '/'}>
+    <Link prefetch={false} href={link.href || '/'} as={link.as || link.href || '/'}>
         <a>
             {link.title}
         </a>
@@ -26,7 +26,7 @@ const pagesLinks = [
     { title: 'Collections', href: '/faq', },
     { title: 'Offers', href: '/offers', as: '/special-offers' },
 ].map((link, idx) => <li key={idx}>
-    <Link href={link.href || '/'} as={link.as || link.href || '/'}>
+    <Link prefetch={false} href={link.href || '/'} as={link.as || link.href || '/'}>
         <a>
             {link.title}
         </a>
@@ -39,7 +39,7 @@ const accountLinks = [
     { title: 'Terms & Conditions', href: '/terms', as: '/terms-conditions' },
     { title: 'Delivery Information', href: '/delivery', as: '/delivery-information' },
 ].map((link, idx) => <li key={idx}>
-    <Link href={link.href || '/'} as={link.as || link.href || '/'}>
+    <Link prefetch={false} href={link.href || '/'} as={link.as || link.href || '/'}>
         <a>
             {link.title}
         </a>

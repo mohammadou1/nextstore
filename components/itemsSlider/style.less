@@ -1,14 +1,11 @@
-@import '../../styles/variables.less';
-
+@import "../../styles/variables.less";
 
 .products-slider {
-    .slick-slide {
-
-
-        &:not(:nth-child(1)) {
-            .product-item {
-                border-left: 1px solid @line-color;
-            }
-        }
+  .slick-slide {
+    &:not(:nth-child(1)) {
+      .product-item {
+        border-left: 1px solid @line-color;
+      }
     }
+  }
 }

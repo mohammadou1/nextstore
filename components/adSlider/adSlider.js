@@ -44,7 +44,7 @@ const adSlider = () => {
         { id: 2, src: "/images/slider.jpg", href: "items/some-item-slug" },
     ].map((ad, idx) => <div key={idx}>
 
-        <Link href={`/items/${ad.id}` || '/'}
+        <Link prefetch={false} href={`/items/${ad.id}` || '/'}
             as={`/items/${ad.href || ad.id}`}>
             <a onClick={isSlidingHandler}>
                 <img className="img-fluid" src={ad.src} />

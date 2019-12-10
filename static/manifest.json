@@ -1,0 +1,21 @@
+{
+	"name": "NextStore",
+	"short_name": "Short name for Icon and Task",
+	"icons": [
+		{
+			"src": "/images/logo.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		},
+		{
+			"src": "/images/logo2.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/?utm_source=web_app_manifest",
+	"display": "standalone",
+	"orientation": "natural",
+	"background_color": "#FFFFFF",
+	"theme_color": "#FFFFFF"
+}

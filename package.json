@@ -6,7 +6,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "demo": "next build && next start"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -22,6 +23,7 @@
     "next-manifest": "^3.0.1",
     "next-offline": "^4.0.6",
     "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-device-detect": "^1.9.10",
     "react-dom": "16.11.0",
