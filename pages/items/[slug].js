@@ -31,7 +31,6 @@ const Item = ({ slug }) => {
   const { seo } = fake;
   return (
     <Layout>
-      
       <Fragment>
         <Meta
           title={seo.title}
