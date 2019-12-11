@@ -1,8 +1,10 @@
+import { Fragment } from "react";
 import Layout from "../../components/layout";
 import { Row, Col } from "antd";
 import Meta from "../../components/meta/meta";
 import { useRouter } from "next/router";
 import { DOMAIN_URL } from "../../utils/URLS";
+
 // * NextJS can handle routing in multiple ways
 // * in fact you can modify it via express server as well
 // * but it recommends 2 ways
@@ -29,20 +31,29 @@ const Item = ({ slug }) => {
   const { seo } = fake;
   return (
     <Layout>
-      <Meta
-        title={seo.title}
-        description={seo.meta_description}
-        keywords={seo.meta_keywords}
-        robots={seo.robots}
-        ogTitle={seo.title}
-        ogType={seo.og_type}
-        ogImage={seo.og_image}
-        ogDescription={seo.og_description}
-        ogUrl={`${DOMAIN_URL}${useRouter().asPath}`}
-      />
-      <Row>
-        <div>Item</div>
-      </Row>
+      <Fragment>
+        <Meta
+          title={seo.title}
+          description={seo.meta_description}
+          keywords={seo.meta_keywords}
+          robots={seo.robots}
+          ogTitle={seo.title}
+          ogType={seo.og_type}
+          ogImage={seo.og_image}
+          ogDescription={seo.og_description}
+          ogUrl={`${DOMAIN_URL}${useRouter().asPath}`}
+        />
+        <div className="mt-large container">
+          <Row type="flex">
+            <Col xl={18} lg={18} md={24} sm={24} xs={24}>
+              LEFT SIDE
+            </Col>
+            <Col xl={6} lg={6} md={24} sm={24} xs={24}>
+              RIGHT SIDE
+            </Col>
+          </Row>
+        </div>
+      </Fragment>
     </Layout>
   );
 };
